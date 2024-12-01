@@ -33,8 +33,7 @@ func Buble(arr *[]int) {
 
 func star1(f string) {
 	fmt.Println("Day 1 - Star 1")
-	data := stream.ReadBytes(f)
-	lines := stream.BtoSa(data)
+	lines := stream.ReadLines(f)
 
 	var left []int
 	var right []int
@@ -75,8 +74,7 @@ func star1(f string) {
 
 func star2(f string) {
 	fmt.Println("Day 1 - Star 2")
-	data := stream.ReadBytes(f)
-	lines := stream.BtoSa(data)
+	lines := stream.ReadLines(f)
 
 	var left []int
 	var right []int

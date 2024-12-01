@@ -47,3 +47,8 @@ func BtoSa(d []byte) []string {
 	}
 	return lines
 }
+
+func ReadLines(f string) []string {
+	data := ReadBytes(f)
+	return BtoSa(data)
+}
