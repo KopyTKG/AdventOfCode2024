@@ -1,16 +1,12 @@
-package day1
+package day01
 
 import (
 	"aoc2024/stream"
-	"fmt"
 	"strconv"
 	"strings"
 )
 
-func Run(f string) {
-	star1(f)
-	star2(f)
-}
+type Solution struct{}
 
 func Buble(arr *[]int) {
 	sorted := false
@@ -31,9 +27,8 @@ func Buble(arr *[]int) {
 	}
 }
 
-func star1(f string) {
-	fmt.Println("Day 1 - Star 1")
-	lines := stream.ReadLines(f)
+func (s Solution) Star1(input string) (string, error) {
+	lines := stream.ReadLines(input)
 
 	var left []int
 	var right []int
@@ -44,13 +39,13 @@ func star1(f string) {
 
 		lInt, err := strconv.Atoi(items[0])
 		if err != nil {
-			panic(err)
+			return "", err
 		}
 		left = append(left, lInt)
 
 		rInt, err := strconv.Atoi(items[1])
 		if err != nil {
-			panic(err)
+			return "", err
 		}
 		right = append(right, rInt)
 	}
@@ -68,13 +63,12 @@ func star1(f string) {
 		total += diff
 	}
 
-	fmt.Println(total)
+	return strconv.Itoa(total), nil
 
 }
 
-func star2(f string) {
-	fmt.Println("Day 1 - Star 2")
-	lines := stream.ReadLines(f)
+func (s Solution) Star2(input string) (string, error) {
+	lines := stream.ReadLines(input)
 
 	var left []int
 	var right []int
@@ -85,13 +79,13 @@ func star2(f string) {
 
 		lInt, err := strconv.Atoi(items[0])
 		if err != nil {
-			panic(err)
+			return "", err
 		}
 		left = append(left, lInt)
 
 		rInt, err := strconv.Atoi(items[1])
 		if err != nil {
-			panic(err)
+			return "", err
 		}
 		right = append(right, rInt)
 	}
@@ -112,5 +106,5 @@ func star2(f string) {
 		total += x * count
 	}
 
-	fmt.Println(total)
+	return strconv.Itoa(total), nil
 }

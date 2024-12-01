@@ -1,11 +1,10 @@
 package main
 
 import (
-	"aoc2024/day1"
-	"fmt"
+	"aoc2024/aoc"
+	"aoc2024/day01"
 )
 
 func main() {
-	fmt.Println("Beep boop")
-	day1.Run("day1/input.txt")
+	aoc.Run(1, day01.Solution{})
 }
