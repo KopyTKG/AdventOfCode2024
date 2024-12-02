@@ -1,9 +1,14 @@
 package aoc
 
 import (
+	"errors"
 	"fmt"
 	"os"
 )
+
+func NIP() error {
+	return errors.New("Not implemented")
+}
 
 type DailySolution interface {
 	Star1(input string) (string, error)
