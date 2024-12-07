@@ -2,9 +2,7 @@ package day06
 
 import (
 	"aoc2024/stream"
-	"fmt"
 	"strconv"
-	"time"
 )
 
 type Solution struct{}
@@ -160,8 +158,6 @@ func runThread(start, stop int, core [][]string, base player, h headings) int {
 }
 
 func (s Solution) Star2(input string) (string, error) {
-	startTime := time.Now()
-
 	lines := stream.ReadLines(input)
 	h := headings{directions: []direction{{x: 0, y: -1}, {x: 1, y: 0}, {x: 0, y: 1}, {x: -1, y: 0}}}
 	var core [][]string
@@ -198,10 +194,7 @@ func (s Solution) Star2(input string) (string, error) {
 				end = len(core)
 			}
 			go func(id, s, e int) {
-				threadStartTime := time.Now()
 				result := runThread(s, e, core, base, h)
-				threadDuration := time.Since(threadStartTime)
-				fmt.Printf("Thread %d completed. Range: [%d, %d), Positions: %d, Duration: %s\n", id, s, e, result, threadDuration)
 				results <- result
 			}(i, start, end)
 		}
@@ -209,12 +202,8 @@ func (s Solution) Star2(input string) (string, error) {
 		for i := 0; i < numWorkers; i++ {
 			threadResult := <-results
 			totalPositions += threadResult
-			fmt.Printf("Accumulated total positions: %d\n", totalPositions)
 		}
 	}
-
-	totalDuration := time.Since(startTime)
-	fmt.Printf("Total execution time: %s\n", totalDuration)
 
 	return strconv.Itoa(totalPositions), nil
 }
