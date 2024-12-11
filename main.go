@@ -3,6 +3,7 @@ package main
 import (
 	"aoc2024/aoc"
 	"aoc2024/day10"
+	"aoc2024/day11"
 )
 
 func main() {
@@ -16,4 +17,5 @@ func main() {
 	// aoc.Run(8, day08.Solution{})
 	// aoc.Run(9, day09.Solution{})
 	aoc.Run(10, day10.Solution{})
+	aoc.Run(11, day11.Solution{})
 }
